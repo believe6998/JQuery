@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Song || Song I Like</title>
+    <meta property="og:url"
+          content="https://tooeasy2get2points.herokuapp.com/save-song.html"/>
+    <meta property="og:type" content="song"/>
+    <meta property="og:title" content="Create New Song || Song I Like"/>
+    <meta property="og:description" content="Create new and share your song"/>
+    <meta property="og:image"
+          content="https://tooeasy2get2points.herokuapp.com/img/share-home.png"/>
+    <link rel="icon" type="image/png" href="img/myfavicon.png">
+    <!--<link rel="stylesheet" href="css/style.css">-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<h1>Song form</h1>
+<ul>
+    <li><a href="register.html" title="Register member">Register</a></li>
+    <li><a href="login.html" title="Member login">Login</a></li>
+    <li><a href="save-song.html" title="Create Song">Create Song</a></li>
+    <li><a href="list-song.html" title="Latest Song">Latest Song</a></li>
+    <li><a href="my-song.html" title="My Song">My Song</a></li>
+</ul>
+<div class="container-fluid">
+    <div id="summary" class="error"></div>
+    <form action="" name="song-form" id="song-form">
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" type="text" name="name">
+        </div>
+        <div class="form-group">
+            <label>Singer Name</label>
+            <input class="form-control" type="text" name="singer">
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <input class="form-control" type="text" name="description">
+        </div>
+        <div class="form-group">
+            <label>Author</label>
+            <input class="form-control" type="text" name="author">
+        </div>
+        <div class="form-group">
+            <label>Thumbnail</label>
+            <input class="form-control" type="text" name="thumbnail">
+        </div>
+        <div class="form-group">
+            <label>Link</label>
+            <input class="form-control" type="text" name="link">
+        </div>
+        <div class="form-group">
+            <label>&nbsp;</label>
+            <input class="form-control" type="submit" name="btn-submit" value="Submit">
+            <input class="form-control" type="reset" name="btn-reset" value="Reset">
+        </div>
+    </form>
+</div>
+</div>
+<script src="../library/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="../library/jquery.validate.min.js"></script>
+<script src="../library/additional-methods.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/save-song.js"></script>
+</body>
+</html>

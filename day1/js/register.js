@@ -1,4 +1,4 @@
-$('#register-form').validate({
+var validator = $('#register-form').validate({
     rules: {
         firstName: {
             required: true,
@@ -25,7 +25,7 @@ $('#register-form').validate({
         birthday: {
             required: true
         },
-        phone:{
+        phone: {
             required: true,
             digits: true,
             maxlength: 10,
@@ -33,7 +33,6 @@ $('#register-form').validate({
         },
         avatar: {
             required: true,
-            url: true
         },
         address: {
             required: true,
@@ -68,7 +67,7 @@ $('#register-form').validate({
         birthday: {
             required: 'Vui lòng chọn ngày sinh.',
         },
-        phone:{
+        phone: {
             required: 'Vui lòng nhập số điện thoại của bạn',
             digits: 'Số diện thoại phải là chữ số',
             maxlength: 'Vui lòng nhập đúng {0} số',
@@ -76,12 +75,87 @@ $('#register-form').validate({
         },
         avatar: {
             required: 'Vui lòng nhập avatar.',
-            url: 'VUi lòng nhập avatar đúng định dạng'
         },
         address: {
             required: 'Vui lòng nhập địa chỉ.',
             minlength: 'Vui lòng  nhập nhiều hơn {0} kí tự',
             maxlength: 'Vui lòng nhập ít hơn {0} kí tự'
         }
+    },
+    submitHandler: function (form, event) {
+        event.preventDefault();
+        var senderObject = {
+            firstName: $(form["firstName"]).val(),
+            lastName: $(form["lastName"]).val(),
+            password: $(form["password"]).val(),
+            address: $(form["address"]).val(),
+            phone: $(form["phone"]).val(),
+            gender: $(form["gender"]).val(),
+            email: $(form["email"]).val(),
+            avatar: $(form["avatar"]).val(),
+            birthday: formatDate($(form["birthday"]).val()),
+        };
+        $.ajax(
+            {
+                url: REGISTER_API,
+                type: 'POST',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(senderObject),
+                success: function (data, textStatus, jqXHR) {
+                    console.log('success');
+                    console.log(data);
+                    console.log('-----');
+                    console.log(data.responseText);
+                    console.log('-----');
+                    console.log(textStatus);
+                    console.log('-----');
+                    console.log(jqXHR);
+                    alert('success');
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    // console.log('error');
+                    // console.log(jqXHR);
+                    // console.log('-----');
+                    // console.log(jqXHR.responseText);
+                    // console.log('-----');
+                    // console.log(jqXHR.responseJSON.error);
+                    // console.log('-----');
+                    // console.log(textStatus);
+                    // console.log('-----');
+                    // console.log(errorThrown);
+                    // if (jqXHR.responseJSON.error.size > 0) {
+                    //     validator.showErrors({
+                    //         firstName: 'Message loi'
+                    //     });
+                    // } else {
+                    //     validator.showErrors({
+                    //         email: 'Message loi'
+                    //     });
+                    // }
+                    if(Object.keys(jqXHR.responseJSON.error).length > 0)
+                    {
+                        $('#summary')
+                            .text(`Please fix ${Object.keys(jqXHR.responseJSON.error).length} below!`);
+                        validator.showErrors(jqXHR.responseJSON.error);
+                    }
+                }
+            }
+        );
+        return false;
     }
 });
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
+
+
