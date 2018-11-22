@@ -1,36 +1,55 @@
-document.addEventListener('DOMContentLoaded', function () {
-    loadSongs();
-});
+$(document).ready(function () {
+        $.ajax(
+            {
+                url: LIST_SONG_API,
+                type: 'GET',
+                // contentType: "application/json; charset=utf-8",
+                success: function (data, textStatus, jqXHR) {
+                    console.log('success');
+                    console.log(data);
+                    console.log('-----');
+                    console.log(data.responseText);
+                    console.log('-----');
+                    console.log(textStatus);
+                    console.log('-----');
+                    console.log(jqXHR);
+                    var content = '';
+                    for (var i = 0; i < data.length; i++) {
+                        content += '<div class="song-item">';
+                        content += '<div class="song-index">' + (i + 1) + '</div>';
+                        content += '<div class="song-thumbnail">';
+                        content += '<img src="' + data[i].thumbnail + '" alt="">';
+                        content += '</div>';
+                        content += '<div class="song-infor">';
+                        content += '<div class="song-name">' + data[i].name + '</div>';
+                        content += '<div class="song-singer">' + data[i].singer + '</div>';
+                        content += '</div>';
+                        content += '<div class="song-control" onclick="playSong(\'' + data[i].link + '\', \'' + data[i].name + '\', \'' + data[i].singer + '\')">Play</div>';
+                        content += '<div class="song-control"><a href="song-detail.html?id=' + data[i].id + '">Detail</a></div>';
+                        content += '</div>';
+                    }
+                    $('#list-song').html(content);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log('error');
+                    console.log(jqXHR);
+                    console.log('-----');
+                    console.log(jqXHR.responseText);
+                    console.log('-----');
+                    console.log(jqXHR.responseJSON.error);
+                    console.log('-----');
+                    console.log(textStatus);
+                    console.log('-----');
+                    console.log(errorThrown);
 
-function loadSongs() {
-    var xmlHttpRequest = new XMLHttpRequest();
-    xmlHttpRequest.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var listSong = JSON.parse(this.responseText);
-            var content = '';
-            for (var i = 0; i < listSong.length; i++) {
-                content += '<div class="song-item">';
-                content += '<div class="song-index">' + (i + 1) + '</div>';
-                content += '<div class="song-thumbnail">';
-                content += '<img src="' + listSong[i].thumbnail + '" alt="">';
-                content += '</div>';
-                content += '<div class="song-infor">';
-                content += '<div class="song-name">' + listSong[i].name + '</div>';
-                content += '<div class="song-singer">' + listSong[i].singer + '</div>';
-                content += '</div>';
-                content += '<div class="song-control" onclick="playSong(\'' + listSong[i].link + '\', \'' + listSong[i].name + '\', \'' + listSong[i].singer + '\')">Play</div>';
-                content += '<div class="song-control"><a href="song-detail.html?id=' + listSong[i].id + '">Detail</a></div>';
-                content += '</div>';
+                }
             }
-            document.getElementById('list-song').innerHTML = content;
-        }
+        )
     }
-    xmlHttpRequest.open('GET', LIST_SONG_API, true);
-    xmlHttpRequest.send();
-}
+);
 
 function playSong(link, name, singer) {
-    document.getElementById('my-mp3').src = link;
-    document.getElementById('current-play-title').innerHTML = 'Current playing: ' + name + " - " + singer;
+    $('#my-mp3').attr("src",link);
+    $('#current-play-title').text('Current:' + name + " - " + singer);
 }
 

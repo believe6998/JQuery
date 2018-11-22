@@ -1,0 +1,13 @@
+.error
+{
+    color: red;
+    margin-left: 10px;
+}
+input.error{
+    border-color: red;
+}
+
+.control{
+    padding-left: 260px;
+
+}
