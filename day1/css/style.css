@@ -72,3 +72,6 @@ label{
     color: black;
 }
 
+#carouselExampleControls img{
+    height: 500px;
+}
