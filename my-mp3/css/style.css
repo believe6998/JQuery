@@ -1,0 +1,307 @@
+
+.song-item {
+    border: 1px solid rgba(13, 23, 20, 0.2);
+    border-radius: 10px;
+    background-color: white;
+    margin: 10px 48px 5px;
+
+}
+
+.song-item:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+
+.song-index {
+    float: left;
+    width: 5%;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 4%;
+    margin-left: 1%;
+}
+
+.song-thumbnail {
+    float: left;
+    width: 10%;
+    margin: 1%;
+    cursor: pointer;
+    position: relative;
+}
+
+.song-thumbnail img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.fa-play-circle{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+.song-infor {
+    padding-top: 1%;
+    float: left;
+    width: 20%;
+    margin-left: 2%;
+    margin-right: 28%;
+    cursor: pointer;
+}
+
+.song-infor .song-name {
+    font-weight: bold;
+}
+
+.song-infor .song-singer {
+    font-weight: lighter;
+    color: rgba(0, 0, 23, 0.47);
+}
+
+.song-control {
+    color: dodgerblue;
+    cursor: pointer;
+    text-decoration: underline;
+    float: left;
+    width: 10%;
+    padding-top: 58px
+}
+
+.song-detail {
+    float: left;
+    width: 50%;
+    padding-top: 0.5%;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+}
+
+input.error {
+    border-color: red;
+}
+
+textarea.error {
+    border-color: red;
+}
+
+label {
+    color: black;
+}
+
+#carouselExampleControls img {
+    height: 500px;
+}
+
+.logo {
+    width: 10%;
+}
+
+.my-logo {
+    width: 5%;
+
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.song-player {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #f2f2f2;
+    padding: 5px;
+
+}
+
+.player {
+    float: left;
+    width: 60%;
+}
+
+.song-detail {
+    width: 35%;
+    float: left;
+    padding-top: 15px;
+}
+
+.current-song-img {
+    width: 5%;
+    float: left;
+
+}
+
+.current-song-img img {
+    /*margin: 5px;*/
+    width: 80%;
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#footer {
+    padding: 20px 30px 65px;
+    margin-top: 12px;
+}
+
+#footer:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.boxContact {
+    width: 30%;
+    float: left;
+    color: darkgrey;
+    padding-top: 10px;
+    font-size: 14px;
+    margin-right: 40px;
+}
+
+.boxContact :after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.boxContact a {
+    color: #2d9f49;
+    transition: .4s;
+    text-decoration: none;
+}
+
+.boxContact a:hover {
+    color: whitesmoke;
+}
+
+.box-bug {
+    width: 20%;
+    float: left;
+    padding: 0 10px;
+    margin-left: 100px;
+}
+
+.box-bug ul {
+    margin: 0;
+    padding: 0;
+}
+
+.box-bug ul li {
+    list-style: none;
+
+}
+
+.box-bug ul li a {
+    color: darkgrey;
+    display: inline-block;
+    margin-bottom: 15px;
+    transition: .4s;
+    text-decoration: none;
+}
+
+.box-bug ul li a:hover {
+    color: whitesmoke;
+}
+.box-bug h3{
+    color: #2daa4a  ;
+}
+.box-brand {
+    float: right;
+    width: 25%;
+    padding-right: 50px;
+    /*padding-top: 15px;*/
+}
+
+.box-img-brand img {
+    width: 100%;
+}
+
+.nav-link:hover{
+    color: whitesmoke;
+}
+
+#navbarTogglerDemo02 ul li a{
+    transition: .4s;
+    color: darkgrey;
+
+}
+#navbarTogglerDemo02 ul li a:hover {
+    color: whitesmoke;
+}
+
+.fa-play{
+    color: darkgrey;
+}
+
+.fa-play:hover{
+    color: green;
+}
+
+.fa-info-circle{
+    color: darkgrey;
+}
+
+.fa-info-circle:hover{
+    color: green;
+}
+
+.fa-download{
+    color: darkgrey;
+}
+
+.fa-download:hover{
+    color: green;
+}
+.fa-share-alt{
+    color: darkgrey;
+}
+
+.fa-share-alt:hover{
+    color: green;
+}
+
+.contract-text3
+{
+    font-size: 18px;
+    padding-top: 8px;
+    text-decoration: none;
+}
+
+.contract-text1
+{
+    font-size: 18px;
+    padding-top: 13px;
+    text-decoration: none;
+
+}
+
+.contract-text2
+{
+    font-size: 18px;
+    padding-top: 13px;
+    text-decoration: none;
+
+}
+
