@@ -132,10 +132,8 @@ var validator = $('#register-form').validate({
                     //         email: 'Message loi'
                     //     });
                     // }
-                    if(Object.keys(jqXHR.responseJSON.error).length > 0)
-                    {
-                        $('#summary')
-                            .text(`Please fix ${Object.keys(jqXHR.responseJSON.error).length} below!`);
+                    if (Object.keys(jqXHR.responseJSON.error).length > 0) {
+                        $('#summary').text(`Please fix ${Object.keys(jqXHR.responseJSON.error).length} below!`);
                         validator.showErrors(jqXHR.responseJSON.error);
                     }
                 }

@@ -75,6 +75,7 @@ var validator = $('#song-form').validate({
                     console.log('-----');
                     console.log(jqXHR);
                     alert(`Lưu thành công bài hát ${data.name}`);
+                    $('#upload-modal').modal('hide');
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log('error');

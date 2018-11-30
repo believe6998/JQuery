@@ -41,6 +41,11 @@
     top: 25%;
     left: 25%;
 }
+.fa-pause-circle{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
 .song-infor {
     padding-top: 1%;
     float: left;
@@ -52,6 +57,9 @@
 
 .song-infor .song-name {
     font-weight: bold;
+}
+.song-infor .song-name:hover{
+    color: green;
 }
 
 .song-infor .song-singer {
@@ -199,7 +207,8 @@ body {
 .box-bug {
     width: 20%;
     float: left;
-    padding: 0 10px;
+    padding: 10px;
+    padding-top: 20px;
     margin-left: 100px;
 }
 
@@ -231,7 +240,7 @@ body {
     float: right;
     width: 25%;
     padding-right: 50px;
-    /*padding-top: 15px;*/
+    padding-top: 20px;
 }
 
 .box-img-brand img {

@@ -19,7 +19,7 @@ function loadSongs() {
                 content += '<div class="song-name" onclick="playSong(\'' + listSong[i].link + '\', \'' + listSong[i].name + '\', \'' + listSong[i].singer + '\', \'' + listSong[i].thumbnail + '\')">' + listSong[i].name + '</div>';
                 content += '<div class="song-singer">' + listSong[i].singer + '</div>';
                 content += '</div>';
-                content += '<div class="song-control" onclick="playSong(\'' + listSong[i].link + '\', \'' + listSong[i].name + '\', \'' + listSong[i].singer + '\', \'' + listSong[i].thumbnail + '\')"><i class="fas fa-play fa-1x "></i></div>';
+                // content += '<div class="song-control" onclick="playSong(\'' + listSong[i].link + '\', \'' + listSong[i].name + '\', \'' + listSong[i].singer + '\', \'' + listSong[i].thumbnail + '\')"><i class="fas fa-play fa-1x "></i></div>';
                 content += '<div class="song-control"><a href="song-detail.html?id=' + listSong[i].id + '"><i class="fas fa-info-circle fa-1x "></i></a></div>';
                 content += '<div class="song-control"><a href="' + listSong[i].link + '"><i class="fas fa-download fa-1x "></i></a></div>';
                 content += '</div>';
@@ -43,9 +43,5 @@ function playSong(link, name, singer, thumbnail) {
 }
 
 
-$('.song-thumbnail').hover(
-    function () {
-        $('i').removeClass('text-hide');
-    }
-);
+
 

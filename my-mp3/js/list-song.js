@@ -17,20 +17,30 @@ $(document).ready(function () {
                     for (var i = 0; i < data.length; i++) {
                         content += '<div class="song-item">';
                         content += '<div class="song-index">' + (i + 1) + '</div>';
-                        content += '<div class="song-thumbnail" onclick="playSong(\'' + data[i].link + '\', \'' + data[i].name + '\', \'' + data[i].singer + '\', \'' + data[i].thumbnail + '\')">';
-                        content += '<img src="' + data[i].thumbnail + '" alt="">';
-                        content += '<i class="far fa-play-circle fa-4x text-hide"></i>';
+                        content += '<div class="song-thumbnail text-hide" onclick="playSong(\'' + data[i].link + '\', \'' + data[i].name + '\', \'' + data[i].singer + '\', \'' + data[i].thumbnail + '\')">';
+                        content += '<img class="song-thumbnail-img"  src="' + data[i].thumbnail + '" alt="">';
+                        content += '<i class="fas fa-play-circle fa-4x text-success "></i>';
+                        // content += '<i class="fas fa-pause-circle fa-4x text-success"></i>';
                         content += '</div>';
                         content += '<div class="song-infor">';
                         content += '<div class="song-name" onclick="playSong(\'' + data[i].link + '\', \'' + data[i].name + '\', \'' + data[i].singer + '\', \'' + data[i].thumbnail + '\')">' + data[i].name + '</div>';
                         content += '<div class="song-singer">' + data[i].singer + '</div>';
                         content += '</div>';
-                        content += '<div class="song-control" onclick="playSong(\'' + data[i].link + '\', \'' + data[i].name + '\', \'' + data[i].singer + '\', \'' + data[i].thumbnail + '\')"><i class="fas fa-play fa-1x "></i></div>';
+                        // content += '<div class="song-control" onclick="playSong(\'' + data[i].link + '\', \'' + data[i].name + '\', \'' + data[i].singer + '\', \'' + data[i].thumbnail + '\')"><i class="fas fa-play fa-1x "></i></div>';
                         content += '<div class="song-control"><a href="song-detail.html?id=' + data[i].id + '"><i class="fas fa-info-circle fa-1x "></i></a></div>';
                         content += '<div class="song-control"><a href="' + data[i].link + '"><i class="fas fa-download fa-1x "></i></a></div>';
                         content += '</div>';
                     }
                     $('#list-song').html(content);
+                    $('.song-thumbnail').hover(
+                        function () {
+                            $( this ).removeClass('text-hide');
+                        },
+                        function () {
+                            $( this ).addClass("text-hide");
+                        },
+                    )
+
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log('error');
@@ -47,6 +57,7 @@ $(document).ready(function () {
                 }
             }
         )
+
     }
 );
 
@@ -57,9 +68,3 @@ function playSong(link, name, singer, thumbnail) {
 
 }
 
-
-$('.song-thumbnail').hover(
-    function () {
-        $('i').removeClass('text-hide');
-    }
-);
